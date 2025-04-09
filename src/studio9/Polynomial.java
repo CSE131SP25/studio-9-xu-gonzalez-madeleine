@@ -11,6 +11,8 @@ public class Polynomial {
 	 */
 	public Polynomial() {
 		//FIXME
+		list = new LinkedList<>();
+		
 	}
 
 	
@@ -21,6 +23,7 @@ public class Polynomial {
 	 */
 	public void addTerm(double coeff) {
 		//FIXME
+		list.add(coeff);
 	}
 	
 	/*
@@ -29,9 +32,22 @@ public class Polynomial {
 	 * Cx^N + Cx^N-1 + ... + Cx + C
 	 */
 	public String toString() {
-		return ""; //FIXME
-	}
+		String result = "";
+		int exponent = list.size() - 1;
 	
+	for(double i: list) {
+		if (exponent > 0){
+			result += i + "x^" + exponent + "+";
+			
+			exponent -= 1;
+		}
+		else {
+			result += i;
+		}
+	}
+		return result; //FIXME
+	}
+	;
 	/**
 	 * 
 	 * @param x
